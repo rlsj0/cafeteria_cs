@@ -71,12 +71,12 @@ public abstract class Usuario
         }
     }
 
-    public List<Cafe> BuscarCafe(string buscar, Cafe[] cafes)
+    public List<Cafe> BuscarCafe(string buscar, List<Cafe> cafes)
     {
         List<Cafe> resultado = new List<Cafe>();
         foreach (Cafe cafe in cafes)
         {
-            if (cafe.Variedad.Contains(buscar) | cafe.Tipo.Contains(buscar))
+            if (cafe.Variedad.ToLower().Contains(buscar.ToLower()) | cafe.Tipo.ToLower().Contains(buscar.ToLower()))
             {
                 resultado.Add(cafe);
             }
