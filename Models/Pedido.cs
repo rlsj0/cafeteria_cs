@@ -51,16 +51,16 @@ public class Pedido
 
     public void MostrarDetalles()
     {
-        string fecha = Fecha.ToString();
+        string fecha = Fecha.ToString("dd/MM/yyyy");
         string satisfaccion = ClienteSatisfecho ? "Sí" : "No";
-        string texto = $"Id del pedido: {Id}\n\tId del cliente{IdCliente}" +
+        string texto = $"ID del pedido: {Id}\n\tID del cliente: {IdCliente}" +
             $"\n\tFecha: {fecha}\n\t¿Cliente satisfecho? {satisfaccion}" +
             $"\n\tProductos:";
         Console.WriteLine(texto);
 
         foreach (Tuple<Cafe, int> tupla in Productos)
         {
-            Console.WriteLine($"\n\t\t{tupla.Item1.Variedad}, {tupla.Item1.Tipo}:" +
+            Console.WriteLine($"\t\t{tupla.Item1.Variedad}, {tupla.Item1.Tipo}: " +
                     $"{tupla.Item2} x {tupla.Item1.Precio:C}");
         }
         Console.WriteLine($"Precio total: {PrecioTotal:C}");
