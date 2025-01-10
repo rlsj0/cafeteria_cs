@@ -21,9 +21,9 @@ public class Admin : Usuario
     }
 
     // Ver clientes
-    public void VerClientes(List<Usuario> listaCliente)
+    public void VerClientes(List<Cliente> listaCliente)
     {
-        foreach (Usuario cliente in listaCliente)
+        foreach (Cliente cliente in listaCliente)
         {
             string fecha = cliente.FechaCreacion.ToString("dd/MM/yyyy HH:mm");
             Console.WriteLine($"({cliente.Id}):\n\t{cliente.Correo}\n\t{fecha}");
@@ -31,11 +31,11 @@ public class Admin : Usuario
     }
 
     // Borrar cliente
-    public List<Usuario> BorrarCliente(List<Usuario> listaCliente, int idCliente)
+    public List<Cliente> BorrarCliente(List<Cliente> listaCliente, int idCliente)
     {
-        List<Usuario> lista = listaCliente;
+        List<Cliente> lista = listaCliente;
         bool clienteExiste = false;
-        foreach (Usuario cliente in listaCliente)
+        foreach (Cliente cliente in listaCliente)
         {
             if (cliente.Id == idCliente)
             {
@@ -73,11 +73,11 @@ public class Admin : Usuario
             foreach (Tuple<Cafe, int> tupla in pedido.Productos)
             {
                 string textoProducto = $"{tupla.Item2} x {tupla.Item1.Variedad}, " +
-                $"{tupla.Item1.Tipo} = {tupla.Item1.Precio * tupla.Item2}";
+                $"{tupla.Item1.Tipo} = {tupla.Item1.Precio * tupla.Item2:C}";
 
                 Console.WriteLine($"\t\t{textoProducto}");
             }
-            Console.WriteLine($"\n\tPrecio total: {pedido.PrecioTotal}");
+            Console.WriteLine($"\n\tPrecio total: {pedido.PrecioTotal:C}");
             Console.WriteLine("---");
         }
     }
