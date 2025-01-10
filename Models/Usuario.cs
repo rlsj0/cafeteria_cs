@@ -19,8 +19,8 @@ public abstract class Usuario
         Id = ++nextId;
         Correo = correo;
 
-        HashContrasena = GenerarHash(contrasena);
         SaltContrasena = RandomNumberGenerator.GetBytes(64);
+        HashContrasena = GenerarHash(contrasena);
         FechaCreacion = DateTime.Today;
     }
 
