@@ -11,6 +11,7 @@ public abstract class Usuario
     public string Correo { get; set; }
     public string HashContrasena { get; set; }
     public byte[] SaltContrasena { get; set; }
+    public DateTime FechaCreacion { get; set; }
 
     // Constructor para la creación de nuevo usuario
     public Usuario(string correo, string contrasena)
@@ -20,16 +21,18 @@ public abstract class Usuario
 
         HashContrasena = GenerarHash(contrasena);
         SaltContrasena = RandomNumberGenerator.GetBytes(64);
+        FechaCreacion = DateTime.Today;
     }
 
     // Constructor para cargar el .json
 
-    public Usuario(int id, string correo, string hashContrasena, byte[] saltContrasena)
+    public Usuario(int id, string correo, string hashContrasena, byte[] saltContrasena, DateTime fechaCreacion)
     {
         Id = id;
         Correo = correo;
         HashContrasena = hashContrasena;
         SaltContrasena = saltContrasena;
+        FechaCreacion = fechaCreacion;
 
         if (nextId <= id)
         {
