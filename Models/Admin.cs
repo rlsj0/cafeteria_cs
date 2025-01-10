@@ -25,7 +25,7 @@ public class Admin : Usuario
     {
         foreach (Usuario cliente in listaCliente)
         {
-            string fecha = cliente.FechaCreacion.ToString();
+            string fecha = cliente.FechaCreacion.ToString("dd/MM/yyyy HH:mm");
             Console.WriteLine($"({cliente.Id}):\n\t{cliente.Correo}\n\t{fecha}");
         }
     }
@@ -64,7 +64,7 @@ public class Admin : Usuario
 
         foreach (Pedido pedido in lista)
         {
-            string fecha = pedido.Fecha.ToString();
+            string fecha = pedido.Fecha.ToString("dd/MM/yyyy HH:mm");
             string satisfaccion = pedido.ClienteSatisfecho ? "Sí" : "No";
             string texto = $"{fecha}:\n\tId del cliente: {pedido.IdCliente}" +
                 $"\n\t¿Cliente satisfecho? {satisfaccion}" +

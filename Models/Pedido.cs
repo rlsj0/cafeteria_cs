@@ -17,7 +17,7 @@ public class Pedido
         IdCliente = idCliente;
         Productos = productos;
         ClienteSatisfecho = clienteSatisfecho;
-        Fecha = DateTime.Today;
+        Fecha = DateTime.Now;
 
         PrecioTotal = CalcularPrecioTotal();
     }

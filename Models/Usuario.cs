@@ -21,7 +21,7 @@ public abstract class Usuario
 
         SaltContrasena = RandomNumberGenerator.GetBytes(64);
         HashContrasena = GenerarHash(contrasena);
-        FechaCreacion = DateTime.Today;
+        FechaCreacion = DateTime.Now;
     }
 
     // Constructor para cargar el .json
