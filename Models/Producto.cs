@@ -33,7 +33,7 @@ public abstract class Producto
         }
     }
 
-    public abstract void ModificarStock();
-
+    public abstract void SumarStock(int numero);
+    public abstract void RestarStock(int numero);
     public abstract void MostrarInformacion();
 }
