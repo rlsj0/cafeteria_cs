@@ -1,4 +1,5 @@
 ﻿using Models;
+using Services;
 
 Cafe BrasilSolo = new Cafe(1.80m, 20, true, "Brasil", "Solo");
 Cafe BrasilLargo = new Cafe(2.00m, 15, true, "Brasil", "Largo");
@@ -51,7 +52,7 @@ listaCafes.Add(JamaicaLargo);
 
 //modificar precio y anadir stock
 //
-Admin admin = new Admin("correo", "password");
+Admin admin = new Admin("correoAdmin", "password");
 
 /*admin.VerTotalPedidos(listaDePedidos);*/
 
@@ -60,7 +61,21 @@ Admin admin = new Admin("correo", "password");
 BrasilLeche.MostrarInformacion();
 BrasilLeche.SumarStock(1);
 BrasilLeche.MostrarInformacion();
-BrasilLeche.RestarStock(22);
+BrasilLeche.RestarStock(2);
 BrasilLeche.MostrarInformacion();
 
+// PROBANDO LA SESIÓN
+// 1) Creamos una lista falsa de usuarios
+
+List<Usuario> listaDeUsuarios = new List<Usuario>();
+listaDeUsuarios.Add(admin);
+listaDeUsuarios.Add(cliente);
+listaDeUsuarios.Add(cliente2);
+
+// 2) Creamos la sesión
+
+Sesion sesion = new Sesion("correo", "contrasena", listaDeUsuarios);
+Console.WriteLine(sesion.EstaActiva);
+Console.WriteLine(sesion.EsAdmin);
+Console.WriteLine(sesion.UsuarioActivo.Correo);
 
