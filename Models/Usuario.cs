@@ -82,7 +82,7 @@ public abstract class Usuario
             }
         }
 
-        if (resultado == null || resultado.Any())
+        if (resultado == null || !resultado.Any())
         {
             Console.WriteLine("No hay resultados...");
             return new List<Cafe>();
