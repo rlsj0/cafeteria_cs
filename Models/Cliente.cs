@@ -2,7 +2,7 @@ namespace Models;
 
 public class Cliente : Usuario
 {
-    List<Pedido> HistoricoPedidos { get; set; }
+    public List<Pedido> HistoricoPedidos { get; set; }
 
     // Constructor para crear un nuevo usuario
     public Cliente(string correo, string contrasena) : base(correo, contrasena)
