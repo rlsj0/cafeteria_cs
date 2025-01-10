@@ -19,6 +19,20 @@ public abstract class Producto
         EsComercioJusto = esComercioJusto;
     }
 
+    public Producto(int id, decimal precio, int cantidadStock, int numeroCompras, bool esComercioJusto)
+    {
+        Id = id;
+        Precio = precio;
+        CantidadStock = cantidadStock;
+        NumeroCompras = numeroCompras;
+        EsComercioJusto = esComercioJusto;
+
+        if (id >= nextId)
+        {
+            nextId = id;
+        }
+    }
+
     public abstract void ModificarStock();
 
     public abstract void MostrarInformacion();
