@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Repositories;
 
 namespace Models;
 
@@ -67,5 +68,21 @@ public class Cliente : Usuario
             HistoricoPedidos = new List<Pedido>();
             HistoricoPedidos.Add(pedido);
         }
+    }
+
+    public static Cliente RegistrarCliente(string correo, string contrasena)
+    {
+        Cliente cliente = new Cliente(correo, contrasena);
+
+        List<Cliente> listaClientes = new List<Cliente>();
+
+        if (File.Exists(ClienteRepository.Ruta))
+        {
+            listaClientes = ClienteRepository.CargarClientes();
+        }
+
+        listaClientes.Add(cliente);
+        ClienteRepository.GuardarClientes(listaClientes);
+        return cliente;
     }
 }
