@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace Models;
 
 public class Cafe : Producto
@@ -13,6 +15,7 @@ public class Cafe : Producto
     }
 
     // Constructor para recuperar los datos del .json
+    [JsonConstructor]
     public Cafe(int id, decimal precio, int cantidadStock, int numeroCompras, bool esComercioJusto, string variedad, string tipo) : base(id, precio, cantidadStock, numeroCompras, esComercioJusto)
     {
         Variedad = variedad;

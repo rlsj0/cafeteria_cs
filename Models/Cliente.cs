@@ -1,8 +1,10 @@
+using System.Text.Json.Serialization;
+
 namespace Models;
 
 public class Cliente : Usuario
 {
-    public List<Pedido> HistoricoPedidos { get; set; }
+    public List<Pedido>? HistoricoPedidos { get; set; }
 
     // Constructor para crear un nuevo usuario
     public Cliente(string correo, string contrasena) : base(correo, contrasena)
@@ -11,9 +13,10 @@ public class Cliente : Usuario
     }
 
     // Constructor para cargar usuario del .json
+    [JsonConstructor]
     public Cliente(int id, string correo, string hashContrasena, byte[] saltContrasena, DateTime fechaCreacion, List<Pedido> historicoPedidos) : base(id, correo, hashContrasena, saltContrasena, fechaCreacion)
     {
-        HistoricoPedidos = new List<Pedido>();
+        HistoricoPedidos = historicoPedidos;
     }
 
     public void VerPedidos()

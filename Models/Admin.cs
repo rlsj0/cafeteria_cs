@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace Models;
 
 public class Admin : Usuario
@@ -7,7 +9,7 @@ public class Admin : Usuario
     public Admin(string correo, string contrasena) : base(correo, contrasena) { }
 
     // Constructor para cargar el json
-
+    [JsonConstructor]
     public Admin(int id, string correo, string hashContrasena, byte[] saltContrasena, DateTime fechaCreacion) : base(id, correo, hashContrasena, saltContrasena, fechaCreacion) { }
 
     public void ModificarPrecio(Cafe cafe, decimal nuevoPrecio)

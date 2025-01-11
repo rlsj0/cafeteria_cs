@@ -29,6 +29,8 @@ public class JsonUtility
     // Metodo para deserializar y cargar (devuelve lista)
     public static T CargarJson<T>(string ruta)
     {
+        var linea = "";
+        string fichero = "";
         try
         {
             // Chequear si existe la ruta
@@ -39,8 +41,6 @@ public class JsonUtility
                 // pedidos, etc.
             }
 
-            var linea = "";
-            string fichero = "";
             using (StreamReader sr = new StreamReader(ruta))
             {
                 while ((linea = sr.ReadLine()) != null)
@@ -48,12 +48,12 @@ public class JsonUtility
                     fichero = fichero + linea;
                 }
             }
-            T listaDeObjetos = JsonSerializer.Deserialize<T>(fichero)!;
-            return listaDeObjetos;
         }
         catch (Exception e)
         {
             Console.WriteLine($"Error al serializar y escribir el JSON: {e}");
         }
+        T listaDeObjetos = JsonSerializer.Deserialize<T>(fichero)!;
+        return listaDeObjetos;
     }
 }
