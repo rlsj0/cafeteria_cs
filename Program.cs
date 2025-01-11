@@ -1,5 +1,7 @@
 ﻿using Models;
 using Services;
+using Utilities;
+using Repositories;
 
 Cafe BrasilSolo = new Cafe(1.80m, 20, true, "Brasil", "Solo");
 Cafe BrasilLargo = new Cafe(2.00m, 15, true, "Brasil", "Largo");
@@ -67,15 +69,50 @@ BrasilLeche.MostrarInformacion();
 // PROBANDO LA SESIÓN
 // 1) Creamos una lista falsa de usuarios
 
-List<Usuario> listaDeUsuarios = new List<Usuario>();
-listaDeUsuarios.Add(admin);
+List<Cliente> listaDeUsuarios = new List<Cliente>();
+List<Admin> listaDeAdmin = new List<Admin>();
+listaDeAdmin.Add(admin);
 listaDeUsuarios.Add(cliente);
 listaDeUsuarios.Add(cliente2);
 
 // 2) Creamos la sesión
 
-Sesion sesion = new Sesion("correo", "contrasena", listaDeUsuarios);
-Console.WriteLine(sesion.EstaActiva);
-Console.WriteLine(sesion.EsAdmin);
-Console.WriteLine(sesion.UsuarioActivo.Correo);
+/*Sesion sesion = new Sesion("correo", "contrasena", listaDeUsuarios);*/
+/*Console.WriteLine(sesion.EstaActiva);*/
+/*Console.WriteLine(sesion.EsAdmin);*/
+/*Console.WriteLine(sesion.UsuarioActivo.Correo);*/
+
+// Probando los métodos para serializar
+
+// Pasarle una lista de Pedidos
+// JsonUtility.GuardarJson<List<Pedido>>("file.json", listaDePedidos);
+/*var listaNuevaPedidos = JsonUtility.CargarJson<List<Pedido>>("file.json");*/
+/*Console.WriteLine(listaNuevaPedidos.ElementAt(0).Id);*/
+// DA ERROR CON PEDIDOS. Vamos a ver qué tal con otros objetos
+
+/*JsonUtility.GuardarJson<List<Cafe>>("fileCafe.json", listaCafes);*/
+
+/*var listaNuevaCafes = JsonUtility.CargarJson<List<Cafe>>("fileCafe.json");*/
+/*Console.WriteLine(listaNuevaCafes.ElementAt(0).Variedad);*/
+
+// Para cafes si funciona
+// Veamos para admin y para clientes
+
+/*JsonUtility.GuardarJson<List<Cliente>>("fileUser.json", listaDeUsuarios);*/
+CafeRepository.GuardarCafes(listaCafes);
+var listaNuevaCafes = CafeRepository.CargarCafes();
+Console.WriteLine(listaNuevaCafes.ElementAt(0).Variedad);
+
+PedidoRepository.GuardarPedidos(listaDePedidos);
+var listaNuevaDePedidos = PedidoRepository.CargarPedidos();
+Console.WriteLine(listaNuevaDePedidos.ElementAt(0).ClienteSatisfecho);
+
+// funciona con clientes
+
+
+// repositorios:
+//     admin funciona
+//     cliente funciona
+//     pedido 
+//     cafe
 

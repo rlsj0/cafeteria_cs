@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace Models;
 
 public class Pedido
@@ -23,7 +25,8 @@ public class Pedido
     }
 
     // Constructor para cargar un pedido del json
-    public Pedido(int id, int idCliente, List<Tuple<Cafe, int>> productos, int precioTotal, DateTime fecha, bool clienteSatisfecho)
+    [JsonConstructor]
+    public Pedido(int id, int idCliente, List<Tuple<Cafe, int>> productos, decimal precioTotal, DateTime fecha, bool clienteSatisfecho)
     {
         Id = id;
         IdCliente = idCliente;
