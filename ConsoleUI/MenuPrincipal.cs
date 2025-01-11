@@ -1,6 +1,7 @@
 namespace ConsoleUI;
 using Models;
 using Services;
+using Repositories;
 
 public static class MenuPrincipal
 {
@@ -35,9 +36,19 @@ public static class MenuPrincipal
             switch (inputParseado)
             {
                 case 1:
-                    // TODO: metodo para ver todos los productos.
-                    // (1) Recuperar los productos del almacenamiento
-                    // (2) foreach en el que Cafe.MostrarInformacion()
+                    try
+                    {
+                        var listaCafes = CafeRepository.CargarCafes();
+                        foreach (Cafe cafe in listaCafes)
+                        {
+                            cafe.MostrarInformacion();
+                        }
+                    }
+                    catch (FileNotFoundException e)
+                    {
+                        Console.WriteLine("Error: " + e);
+                        Console.WriteLine("Parece que aún no hay ningún producto.");
+                    }
 
                     Console.WriteLine("\nPulsa enter para continuar.");
                     var inputFalso = Console.ReadLine();
