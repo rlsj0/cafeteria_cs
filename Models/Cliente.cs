@@ -17,6 +17,11 @@ public class Cliente : Usuario
     public Cliente(int id, string correo, string hashContrasena, byte[] saltContrasena, DateTime fechaCreacion, List<Pedido> historicoPedidos) : base(id, correo, hashContrasena, saltContrasena, fechaCreacion)
     {
         HistoricoPedidos = historicoPedidos;
+        if (historicoPedidos == null || !historicoPedidos.Any())
+        {
+            HistoricoPedidos = new List<Pedido>();
+        }
+
     }
 
     public void VerPedidos()
@@ -53,6 +58,14 @@ public class Cliente : Usuario
         }
 
         Pedido pedido = new Pedido(idCliente, productos, clienteSatisfecho);
-        HistoricoPedidos.Add(pedido);
+        if (HistoricoPedidos != null)
+        {
+            HistoricoPedidos.Add(pedido);
+        }
+        else
+        {
+            HistoricoPedidos = new List<Pedido>();
+            HistoricoPedidos.Add(pedido);
+        }
     }
 }
