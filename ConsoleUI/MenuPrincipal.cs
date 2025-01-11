@@ -15,7 +15,7 @@ public static class MenuPrincipal
             "\nSu opción: ";
 
     private static int NumeroOpcionesInicio = 4;
-    private static string ErrorInput = "El input no es correcto. Inténtelo de nuevo";
+    public static string ErrorInput = "El input no es correcto. Inténtelo de nuevo";
 
     public static void MenuInicio()
     {
