@@ -57,7 +57,10 @@ public static class MenuPrincipal
                     MenuInicioSesion();
                     continue;
                 case 3:
-                    // TODO: llamar a un metodo que se encargue del registro
+                    if (PedirDatos(out string correo, out string contrasena))
+                    {
+                        Cliente.RegistrarCliente(correo, contrasena);
+                    }
                     continue;
                 case 4:
                     Console.WriteLine("Saliendo...");
@@ -70,15 +73,16 @@ public static class MenuPrincipal
         }
     }
 
-    public static void MenuInicioSesion()
+    public static bool PedirDatos(out string correo, out string contrasena)
     {
-        var correo = "";
-        var contrasena = "";
-        // bucle para recoger input
+        bool registroCorrecto = false;
         while (true)
         {
+            correo = "";
+            contrasena = "";
             Console.WriteLine("Introduzca su correo (pulse x para salir): ");
-            correo = Console.ReadLine();
+            // Pongo el "!" (null-forgiving operator) para evitar la advertencia.
+            correo = Console.ReadLine()!;
             if (string.IsNullOrEmpty(correo))
             {
                 Console.WriteLine(ErrorInput);
@@ -87,11 +91,11 @@ public static class MenuPrincipal
 
             if (correo == "x")
             {
-                return;
+                return registroCorrecto;
             }
 
             Console.WriteLine("Introduzca su contraseña (pulse x para salir): ");
-            correo = Console.ReadLine();
+            contrasena = Console.ReadLine()!;
             if (string.IsNullOrEmpty(contrasena))
             {
                 Console.WriteLine(ErrorInput);
@@ -100,15 +104,75 @@ public static class MenuPrincipal
 
             if (contrasena == "x")
             {
+                return registroCorrecto;
+            }
+            else
+            {
+                registroCorrecto = true;
+                return registroCorrecto;
+            }
+        }
+    }
+
+    public static void MenuInicioSesion()
+    {
+        // bucle para recoger input
+        while (MenuPrincipal.PedirDatos(out string correo, out string contrasena))
+        {
+            try
+            {
+
+                var listaClientes = ClienteRepository.CargarClientes();
+                var listaAdmin = AdminRepository.CargarAdmin();
+
+                List<Usuario> listaUsuarios = new List<Usuario>();
+                foreach (Cliente cliente in listaClientes)
+                {
+                    listaUsuarios.Add(cliente);
+                }
+
+                foreach (Admin admin in listaAdmin)
+                {
+                    listaUsuarios.Add(admin);
+                }
+
+                if (!Sesion.CorreoExiste(correo, listaUsuarios))
+                {
+                    Console.WriteLine("Correo no registrado");
+                    continue;
+                }
+
+                Sesion sesion = new Sesion(correo, contrasena, listaUsuarios);
+
+                if (!sesion.EstaActiva)
+                {
+                    Console.WriteLine("Contraseña incorrecta");
+                    continue;
+                }
+
+                if (sesion.EsAdmin)
+                {
+                    // TODO: llamar menu de admin
+                }
+                else
+                {
+                    // TODO: llamar menu de cliente
+                }
+
                 return;
+
+            }
+            catch (FileNotFoundException e)
+            {
+                Console.WriteLine("Error: " + e);
+                Console.WriteLine("Parece que no hay usuarios registrados.");
+                continue;
             }
 
-            // TODO: Coger los usuarios existentes y devolver listaUsuarios
-            /*Sesion.CorreoExiste(correo, listaUsarios);*/
-            // Crear nueva sesión
-            // Chequear si la sesion es de usuario o de admin y llamar al menú correspondiente
-
         }
+        // Crear nueva sesión
+        // Chequear si la sesion es de usuario o de admin y llamar al menú correspondiente
 
     }
+
 }
