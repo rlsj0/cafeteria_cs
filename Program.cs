@@ -1,9 +1,10 @@
-﻿using ConsoleUI;
+using Models;
+using Services;
 
-/*Cafe BrasilSolo = new Cafe(1.80m, 20, true, "Brasil", "Solo");*/
-/*Cafe BrasilLargo = new Cafe(2.00m, 15, true, "Brasil", "Largo");*/
-/*Cafe JamaicaLargo = new Cafe(4, 2.00m, 15, 4, true, "Jamaica", "Largo");*/
-/*Cafe BrasilLeche = new Cafe(2.50m, 15, true, "Brasil", "Con leche");*/
+Cafe BrasilSolo = new Cafe(1.80m, 20, true, "Brasil", "Solo");
+Cafe BrasilLargo = new Cafe(2.00m, 15, true, "Brasil", "Largo");
+Cafe JamaicaLargo = new Cafe(4, 2.00m, 15, 4, true, "Jamaica", "Largo");
+Cafe BrasilLeche = new Cafe(2.50m, 15, true, "Brasil", "Con leche");
 
 //BrasilSolo.MostrarInformacion();
 
@@ -66,16 +67,15 @@
 // PROBANDO LA SESIÓN
 // 1) Creamos una lista falsa de usuarios
 
-/*List<Usuario> listaDeUsuarios = new List<Usuario>();*/
-/*listaDeUsuarios.Add(admin);*/
-/*listaDeUsuarios.Add(cliente);*/
-/*listaDeUsuarios.Add(cliente2);*/
-/**/
+List<Usuario> listaDeUsuarios = new List<Usuario>();
+listaDeUsuarios.Add(admin);
+listaDeUsuarios.Add(cliente);
+listaDeUsuarios.Add(cliente2);
+
 // 2) Creamos la sesión
 
-/*Sesion sesion = new Sesion("correo", "contrasena", listaDeUsuarios);*/
-/*Console.WriteLine(sesion.EstaActiva);*/
-/*Console.WriteLine(sesion.EsAdmin);*/
-/*Console.WriteLine(sesion.UsuarioActivo.Correo);*/
+Sesion sesion = new Sesion("correo", "contrasena", listaDeUsuarios);
+Console.WriteLine(sesion.EstaActiva);
+Console.WriteLine(sesion.EsAdmin);
+Console.WriteLine(sesion.UsuarioActivo.Correo);
 
-MenuPrincipal.MenuInicio();
