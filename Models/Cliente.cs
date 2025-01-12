@@ -38,7 +38,7 @@ public class Cliente : Usuario
         }
     }
 
-    public void HacerPedido(int idCliente, List<Tuple<Cafe, int>> productos, bool clienteSatisfecho)
+    public Pedido HacerPedido(int idCliente, List<Tuple<Cafe, int>> productos, bool clienteSatisfecho)
     {
 
         foreach (Tuple<Cafe, int> tupla in productos)
@@ -68,6 +68,7 @@ public class Cliente : Usuario
             HistoricoPedidos = new List<Pedido>();
             HistoricoPedidos.Add(pedido);
         }
+        return pedido;
     }
 
     public static Cliente RegistrarCliente(string correo, string contrasena)

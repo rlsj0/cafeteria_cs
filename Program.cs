@@ -1,10 +1,51 @@
+using ConsoleUI;
 using Models;
-using Services;
+using Repositories;
 
-Cafe BrasilSolo = new Cafe(1.80m, 20, true, "Brasil", "Solo");
-Cafe BrasilLargo = new Cafe(2.00m, 15, true, "Brasil", "Largo");
-Cafe JamaicaLargo = new Cafe(4, 2.00m, 15, 4, true, "Jamaica", "Largo");
-Cafe BrasilLeche = new Cafe(2.50m, 15, true, "Brasil", "Con leche");
+/*// Creamos algunas cosas*/
+/**/
+/*// Cafes*/
+/*Cafe BrasilSolo = new Cafe(1.80m, 20, true, "Brasil", "Solo");*/
+/*Cafe BrasilLargo = new Cafe(2.00m, 15, true, "Brasil", "Largo");*/
+/*Cafe JamaicaLargo = new Cafe(4, 2.00m, 15, 4, true, "Jamaica", "Largo");*/
+/*Cafe BrasilLeche = new Cafe(2.50m, 15, true, "Brasil", "Con leche");*/
+/**/
+/*List<Cafe> listaCafes = new List<Cafe>();*/
+/*listaCafes.Add(BrasilLeche);*/
+/*listaCafes.Add(BrasilSolo);*/
+/*listaCafes.Add(BrasilLargo);*/
+/*listaCafes.Add(JamaicaLargo);*/
+/**/
+/*CafeRepository.GuardarCafes(listaCafes);*/
+/**/
+/*// Un admin*/
+/*Admin admin = new Admin("correoAdmin", "password");*/
+/*List<Admin> listaAdmin = new List<Admin>();*/
+/*AdminRepository.GuardarAdmin(listaAdmin);*/
+/**/
+/*// Un usuario con un pedido*/
+/*Cliente cliente = new Cliente("correo", "contrasena");*/
+/*Cliente cliente2 = new Cliente("nuevo", "contrasena");*/
+/**/
+/**/
+/*Tuple<Cafe, int> tupla = new Tuple<Cafe, int>(BrasilSolo, 2);*/
+/*Tuple<Cafe, int> tupla2 = new Tuple<Cafe, int>(BrasilLeche, 3);*/
+/*List<Tuple<Cafe, int>> lista = new List<Tuple<Cafe, int>>();*/
+/*lista.Add(tupla);*/
+/*lista.Add(tupla2);*/
+/*Pedido pedido = cliente2.HacerPedido(3, lista, false);*/
+/*List<Pedido> listaDePedidos = new List<Pedido>();*/
+/*listaDePedidos.Add(pedido);*/
+/*PedidoRepository.GuardarPedidos(listaDePedidos);*/
+/**/
+/*List<Cliente> listaClientes = new List<Cliente>();*/
+/*listaClientes.Add(cliente);*/
+/*listaClientes.Add(cliente2);*/
+/*ClienteRepository.GuardarClientes(listaClientes);*/
+/**/
+
+MenuPrincipal.MenuInicio();
+
 
 //BrasilSolo.MostrarInformacion();
 
@@ -67,15 +108,15 @@ Cafe BrasilLeche = new Cafe(2.50m, 15, true, "Brasil", "Con leche");
 // PROBANDO LA SESIÓN
 // 1) Creamos una lista falsa de usuarios
 
-List<Usuario> listaDeUsuarios = new List<Usuario>();
-listaDeUsuarios.Add(admin);
-listaDeUsuarios.Add(cliente);
-listaDeUsuarios.Add(cliente2);
+/*List<Usuario> listaDeUsuarios = new List<Usuario>();*/
+/*listaDeUsuarios.Add(admin);*/
+/*listaDeUsuarios.Add(cliente);*/
+/*listaDeUsuarios.Add(cliente2);*/
 
 // 2) Creamos la sesión
 
-Sesion sesion = new Sesion("correo", "contrasena", listaDeUsuarios);
-Console.WriteLine(sesion.EstaActiva);
-Console.WriteLine(sesion.EsAdmin);
-Console.WriteLine(sesion.UsuarioActivo.Correo);
+/*Sesion sesion = new Sesion("correo", "contrasena", listaDeUsuarios);*/
+/*Console.WriteLine(sesion.EstaActiva);*/
+/*Console.WriteLine(sesion.EsAdmin);*/
+/*Console.WriteLine(sesion.UsuarioActivo.Correo);*/
 

@@ -156,7 +156,7 @@ public static class MenuPrincipal
                 }
                 else
                 {
-                    // TODO: llamar menu de cliente
+                    MenuCliente.Menu(sesion);
                 }
 
                 return;
