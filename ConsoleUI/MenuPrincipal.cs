@@ -152,7 +152,7 @@ public static class MenuPrincipal
 
                 if (sesion.EsAdmin)
                 {
-                    // TODO: llamar menu de admin
+                    MenuAdmin.Menu(sesion);
                 }
                 else
                 {
@@ -170,9 +170,5 @@ public static class MenuPrincipal
             }
 
         }
-        // Crear nueva sesión
-        // Chequear si la sesion es de usuario o de admin y llamar al menú correspondiente
-
     }
-
 }
