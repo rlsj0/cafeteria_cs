@@ -119,7 +119,7 @@ public class MenuCliente
                         var idParaComprar = Console.ReadLine();
                         if (idParaComprar == null)
                         {
-                            Console.WriteLine("Error: Input incorrecto");
+                            Console.WriteLine(MenuPrincipal.ErrorInput);
                             continue;
                         }
                         else if (idParaComprar == "x")
@@ -128,7 +128,7 @@ public class MenuCliente
                         }
                         if (!int.TryParse(idParaComprar, out int opcionParseada))
                         {
-                            Console.WriteLine("Error: Input incorrecto");
+                            Console.WriteLine(MenuPrincipal.ErrorInput);
                             continue;
                         }
 
@@ -171,9 +171,9 @@ public class MenuCliente
                             break;
                         }
 
-                        if (!int.TryParse(cantidadParaComprar, out int cantidad))
+                        if (!int.TryParse(cantidadParaComprar, out int cantidad) || cantidad <= 0)
                         {
-                            Console.WriteLine("Input incorrecto");
+                            Console.WriteLine(MenuPrincipal.ErrorInput);
                             break;
                         }
                         if (cafeSeleccionado.CantidadStock < cantidad)
@@ -195,7 +195,7 @@ public class MenuCliente
                             otroProducto = Console.ReadLine();
                             if (otroProducto == null || (otroProducto != "y" && otroProducto != "n"))
                             {
-                                Console.WriteLine("Input incorrecto");
+                                Console.WriteLine(MenuPrincipal.ErrorInput);
                                 continue;
                             }
                             else
