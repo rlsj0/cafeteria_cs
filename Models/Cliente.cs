@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using Repositories;
 
 namespace Models;
 
@@ -17,6 +18,11 @@ public class Cliente : Usuario
     public Cliente(int id, string correo, string hashContrasena, byte[] saltContrasena, DateTime fechaCreacion, List<Pedido> historicoPedidos) : base(id, correo, hashContrasena, saltContrasena, fechaCreacion)
     {
         HistoricoPedidos = historicoPedidos;
+        if (historicoPedidos == null || !historicoPedidos.Any())
+        {
+            HistoricoPedidos = new List<Pedido>();
+        }
+
     }
 
     public void VerPedidos()
@@ -32,7 +38,7 @@ public class Cliente : Usuario
         }
     }
 
-    public void HacerPedido(int idCliente, List<Tuple<Cafe, int>> productos, bool clienteSatisfecho)
+    public Pedido HacerPedido(int idCliente, List<Tuple<Cafe, int>> productos, bool clienteSatisfecho)
     {
 
         foreach (Tuple<Cafe, int> tupla in productos)
@@ -53,6 +59,31 @@ public class Cliente : Usuario
         }
 
         Pedido pedido = new Pedido(idCliente, productos, clienteSatisfecho);
-        HistoricoPedidos.Add(pedido);
+        if (HistoricoPedidos != null)
+        {
+            HistoricoPedidos.Add(pedido);
+        }
+        else
+        {
+            HistoricoPedidos = new List<Pedido>();
+            HistoricoPedidos.Add(pedido);
+        }
+        return pedido;
+    }
+
+    public static Cliente RegistrarCliente(string correo, string contrasena)
+    {
+        Cliente cliente = new Cliente(correo, contrasena);
+
+        List<Cliente> listaClientes = new List<Cliente>();
+
+        if (File.Exists(ClienteRepository.Ruta))
+        {
+            listaClientes = ClienteRepository.CargarClientes();
+        }
+
+        listaClientes.Add(cliente);
+        ClienteRepository.GuardarClientes(listaClientes);
+        return cliente;
     }
 }
