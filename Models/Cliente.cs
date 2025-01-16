@@ -76,10 +76,26 @@ public class Cliente : Usuario
         Cliente cliente = new Cliente(correo, contrasena);
 
         List<Cliente> listaClientes = new List<Cliente>();
+        List<Admin> listaAdmin = new List<Admin>();
 
         if (File.Exists(ClienteRepository.Ruta))
         {
             listaClientes = ClienteRepository.CargarClientes();
+            listaAdmin = AdminRepository.CargarAdmin();
+            foreach (Cliente c in listaClientes)
+            {
+                if (c.Correo == correo)
+                {
+                    throw new Exception("Este correo ya está registrado.");
+                }
+            }
+            foreach (Admin a in listaAdmin)
+            {
+                if (a.Correo == correo)
+                {
+                    throw new Exception("Este correo ya está registrado.");
+                }
+            }
         }
 
         listaClientes.Add(cliente);
