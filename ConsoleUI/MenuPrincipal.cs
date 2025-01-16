@@ -59,7 +59,14 @@ public static class MenuPrincipal
                 case 3:
                     if (PedirDatos(out string correo, out string contrasena))
                     {
-                        Cliente.RegistrarCliente(correo, contrasena);
+                        try
+                        {
+                            Cliente.RegistrarCliente(correo, contrasena);
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e);
+                        }
                     }
                     continue;
                 case 4:

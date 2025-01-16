@@ -8,15 +8,7 @@ public class CafeRepository
     public static List<Cafe> CargarCafes()
     {
         List<Cafe> listaCafes = new List<Cafe>();
-        try
-        {
-            listaCafes = JsonUtility.CargarJson<List<Cafe>>(Ruta);
-        }
-        catch (FileNotFoundException e)
-        {
-            // Gestionar excepcion desde la interfaz
-            throw e;
-        }
+        listaCafes = JsonUtility.CargarJson<List<Cafe>>(Ruta);
         return listaCafes;
     }
     public static void GuardarCafes(List<Cafe> listaCafes)

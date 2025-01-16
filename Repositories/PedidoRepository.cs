@@ -12,10 +12,11 @@ public class PedidoRepository
         {
             listaPedidos = JsonUtility.CargarJson<List<Pedido>>(Ruta);
         }
-        catch (FileNotFoundException e)
+        catch (Exception e)
         {
-            // Gestionar excepcion desde la interfaz
-            throw e;
+            Console.WriteLine("Error: " + e);
+            GuardarPedidos(listaPedidos);
+            Console.WriteLine("Fichero creado, inténtelo de nuevo");
         }
         return listaPedidos;
     }
