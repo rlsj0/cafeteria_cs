@@ -81,7 +81,6 @@ public class MenuCliente
                     var listaResultado = cliente.BuscarCafe(buscar, listaCafe);
                     if (!listaResultado.Any())
                     {
-                        Console.WriteLine("No hay resultados");
                         Console.WriteLine("Pulse enter para continuar");
                         Console.ReadLine();
                         continue;
@@ -124,7 +123,7 @@ public class MenuCliente
                         }
                         else if (idParaComprar == "x")
                         {
-                            continue;
+                            break;
                         }
                         if (!int.TryParse(idParaComprar, out int opcionParseada))
                         {

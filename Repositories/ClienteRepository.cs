@@ -8,15 +8,7 @@ public class ClienteRepository
     public static List<Cliente> CargarClientes()
     {
         List<Cliente> listaClientes = new List<Cliente>();
-        try
-        {
-            listaClientes = JsonUtility.CargarJson<List<Cliente>>(Ruta);
-        }
-        catch (FileNotFoundException e)
-        {
-            // Gestionar excepcion desde la interfaz
-            throw e;
-        }
+        listaClientes = JsonUtility.CargarJson<List<Cliente>>(Ruta);
         return listaClientes;
     }
     public static void GuardarClientes(List<Cliente> listaClientes)

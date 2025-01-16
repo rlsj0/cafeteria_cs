@@ -8,15 +8,7 @@ public class AdminRepository
     public static List<Admin> CargarAdmin()
     {
         List<Admin> listaAdmin = new List<Admin>();
-        try
-        {
-            listaAdmin = JsonUtility.CargarJson<List<Admin>>(Ruta);
-        }
-        catch (FileNotFoundException e)
-        {
-            // Gestionar excepcion desde la interfaz
-            throw e;
-        }
+        listaAdmin = JsonUtility.CargarJson<List<Admin>>(Ruta);
         return listaAdmin;
     }
     public static void GuardarAdmin(List<Admin> listaAdmin)
