@@ -41,8 +41,9 @@ permite modificar el estado de un producto, que varía entre "Nuevo",
       (aunque la aplicación _no necesita_ el puerto)**
     - [X] Al menos un volumen para acceder a los datos: **Dentro del
     contenedor, en `/app/data`.**
-- [ ] Subir el contenedor a un registro de contenedores y usar la
-  aplicación contenida.
+- [X] Subir el contenedor a un registro de contenedores y usar la
+  aplicación contenida: **Véase `rlsanjose/cafeteria_cs` en Docker
+  Hub**
 
 ## Requisitos opcionales (1/5)
 
