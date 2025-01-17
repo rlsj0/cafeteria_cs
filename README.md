@@ -22,7 +22,7 @@ permite modificar el estado de un producto, que varía entre "Nuevo",
     - [X] Gestión de alta y selección: **Registro de clientes, función
       de hacer pedidos**
     - [X] Zona privada de información: **Pedidos del cliente**
-    - [X] Zona pública de información: *Productos en venta**
+    - [X] Zona pública de información: **Productos en venta**
 - [X] Modelo de datos:
     - [X] Al menos, 3 clases: **Las clases principales son: Usuario,
     Admin, Cliente, Producto, Cafe, Pedido**
@@ -40,7 +40,7 @@ permite modificar el estado de un producto, que varía entre "Nuevo",
     - [X] Usando el puerto del contenedor 8023: **Véase el Dockerfile
       (aunque la aplicación _no necesita_ el puerto)**
     - [X] Al menos un volumen para acceder a los datos: **Dentro del
-    contenedor, en `/app/data`.
+    contenedor, en `/app/data`.**
 - [ ] Subir el contenedor a un registro de contenedores y usar la
   aplicación contenida.
 
