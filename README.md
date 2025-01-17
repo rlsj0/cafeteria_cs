@@ -48,7 +48,8 @@ permite modificar el estado de un producto, que varía entre "Nuevo",
 - [X] Almacenar datos en `.json`
 - [ ] Hacer un log con mensajes de error. Añadir un volumen que lo
   guarde.
-- [ ] Añadir al menos una variable de entorno que emplee la
-  aplicación.
+- [X] Añadir al menos una variable de entorno que emplee la
+  aplicación: **Configurada la variable `LANG` como `es_ES.UTF-8` para
+  que muestre la moneda como euros**
 - [ ] Usar librerías como "Terminal.GUI" o "Spectre.Console" para
   hacer más visual la aplicación
