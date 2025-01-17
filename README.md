@@ -14,7 +14,7 @@ y/o modificar los productos y sus precios. La aplicación también
 permite modificar el estado de un producto, que varía entre "Nuevo",
 "En proceso" y "Finalizado".
 
-## Requisitos obligatorios (0/5)
+## Requisitos obligatorios (5/5)
 
 - [X] La aplicación debe componerse de:
     - [X] Menú principal y secundarios: **Menú principal, menú de
@@ -45,7 +45,7 @@ permite modificar el estado de un producto, que varía entre "Nuevo",
   aplicación contenida: **Véase `rlsanjose/cafeteria_cs` en Docker
   Hub**
 
-## Requisitos opcionales (1/5)
+## Requisitos opcionales (3/5)
 
 - [X] Utilizar Git y Gitflow
 - [X] Almacenar datos en `.json`
