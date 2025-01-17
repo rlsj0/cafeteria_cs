@@ -16,6 +16,8 @@ RUN dotnet publish -o out
 FROM mcr.microsoft.com/dotnet/runtime:8.0
 WORKDIR /app
 COPY --from=build /app/out .
+# Creamos un volumen
+VOLUME ["/app/data"]
 # Exponemos el puerto 8023
 EXPOSE 8023
 # Creamos la variable adecuada para la moneda
