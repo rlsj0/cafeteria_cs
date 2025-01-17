@@ -4,7 +4,7 @@ using Models;
 
 public class AdminRepository
 {
-    public static string Ruta = "admin.json";
+    public static string Ruta = "data/admin.json";
     public static List<Admin> CargarAdmin()
     {
         List<Admin> listaAdmin = new List<Admin>();
