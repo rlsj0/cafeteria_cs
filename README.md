@@ -36,9 +36,11 @@ permite modificar el estado de un producto, que varía entre "Nuevo",
     nextId, idCliente, productos, precioTotal, fecha,
     clienteSatisfecho).**
 - [X] Funcionalidad de búsqueda: **Búsqueda de cafés por variedad y tipo**
-- [ ] Contenerizar la aplicación 
-    - [ ] Usando el puerto del contenedor 8023.
-    - [ ] Al menos un volumen para acceder a los datos.
+- [X] Contenerizar la aplicación 
+    - [X] Usando el puerto del contenedor 8023: **Véase el Dockerfile
+      (aunque la aplicación _no necesita_ el puerto)**
+    - [X] Al menos un volumen para acceder a los datos: **Dentro del
+    contenedor, en `/app/data`.
 - [ ] Subir el contenedor a un registro de contenedores y usar la
   aplicación contenida.
 
