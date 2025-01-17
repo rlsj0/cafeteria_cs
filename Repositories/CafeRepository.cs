@@ -4,7 +4,7 @@ using Models;
 
 public class CafeRepository
 {
-    public static string Ruta = "cafe.json";
+    public static string Ruta = "data/cafe.json";
     public static List<Cafe> CargarCafes()
     {
         List<Cafe> listaCafes = new List<Cafe>();

@@ -4,7 +4,7 @@ using Models;
 
 public class ClienteRepository
 {
-    public static string Ruta = "cliente.json";
+    public static string Ruta = "data/cliente.json";
     public static List<Cliente> CargarClientes()
     {
         List<Cliente> listaClientes = new List<Cliente>();

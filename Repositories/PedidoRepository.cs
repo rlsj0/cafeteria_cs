@@ -4,7 +4,7 @@ using Models;
 
 public class PedidoRepository
 {
-    public static string Ruta = "pedido.json";
+    public static string Ruta = "data/pedido.json";
     public static List<Pedido> CargarPedidos()
     {
         List<Pedido> listaPedidos = new List<Pedido>();
@@ -14,9 +14,8 @@ public class PedidoRepository
         }
         catch (Exception e)
         {
-            Console.WriteLine("Error: " + e);
+            Console.WriteLine("Creando fichero de pedidos");
             GuardarPedidos(listaPedidos);
-            Console.WriteLine("Fichero creado, inténtelo de nuevo");
         }
         return listaPedidos;
     }
