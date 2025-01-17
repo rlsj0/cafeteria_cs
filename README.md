@@ -16,16 +16,26 @@ permite modificar el estado de un producto, que varía entre "Nuevo",
 
 ## Requisitos obligatorios (0/5)
 
-- [ ] La aplicación debe componerse de:
-    - [ ] Menú principal y secundarios
-    - [ ] Gestión de alta y selección
-    - [ ] Zona privada de información
-    - [ ] Zona pública de información
-- [ ] Modelo de datos:
-    - [ ] Al menos, 3 clases
-    - [ ] Con relaciones entre ellas
-    - [ ] Al menos 6 atributos/clase
-- [ ] Funcionalidad de búsqueda (al menos por un campo)
+- [X] La aplicación debe componerse de:
+    - [X] Menú principal y secundarios: **Menú principal, menú de
+    cliente y menú de admin.**
+    - [X] Gestión de alta y selección: **Registro de clientes, función
+      de hacer pedidos**
+    - [X] Zona privada de información: **Pedidos del cliente**
+    - [X] Zona pública de información: *Productos en venta**
+- [X] Modelo de datos:
+    - [X] Al menos, 3 clases: **Las clases principales son: Usuario,
+    Admin, Cliente, Producto, Cafe, Pedido**
+    - [X] Con relaciones entre ellas: **Hay herencia entre Usuario y
+    Admin/Cliente, así como entre Producto y Café. Desde los métodos
+    de cliente pueden realizarse nuevos pedidos**
+    - [X] Al menos 6 atributos/clase: **Tienen 6 atributos las clases
+    Cliente (id, correo, hashContrasena, saltContrasena,
+    fechaCreacion, historicoPedidos), Cafe (id, precio, cantidadStock,
+    numeroCompras, esComercioJusto, variedad, tipo), Pedido (id,
+    nextId, idCliente, productos, precioTotal, fecha,
+    clienteSatisfecho).**
+- [X] Funcionalidad de búsqueda: **Búsqueda de cafés por variedad y tipo**
 - [ ] Contenerizar la aplicación 
     - [ ] Usando el puerto del contenedor 8023.
     - [ ] Al menos un volumen para acceder a los datos.
@@ -35,7 +45,7 @@ permite modificar el estado de un producto, que varía entre "Nuevo",
 ## Requisitos opcionales (1/5)
 
 - [X] Utilizar Git y Gitflow
-- [ ] Almacenar datos en `.json`
+- [X] Almacenar datos en `.json`
 - [ ] Hacer un log con mensajes de error. Añadir un volumen que lo
   guarde.
 - [ ] Añadir al menos una variable de entorno que emplee la
