@@ -6,13 +6,10 @@ El proyecto consiste en lo siguiente: se trata de un aplicativo para
 una cafetería virtual. Los clientes pueden comprar varios tipos de
 café a través de una aplicación de terminal. Un cliente puede ver los
 productos ofrecidos y su precio, y si se registra puede hacer pedidos
-y ver su historial de pedidos. También puede tener una _wishlist_ de
-productos. A la aplicación también puede registrarse una figura de
-administrador, que puede ver todos los pedidos que se han hecho, así
-como los clientes y adminstradores registrados. También puede añadir
-y/o modificar los productos y sus precios. La aplicación también
-permite modificar el estado de un producto, que varía entre "Nuevo",
-"En proceso" y "Finalizado".
+y ver su historial de pedidos. A la aplicación también puede registrarse 
+una figura de administrador, que puede ver todos los pedidos que se han
+hecho, así como los clientes registrados. También puede añadir y/o
+modificar los productos y sus precios.
 
 ## Requisitos obligatorios (5/5)
 
